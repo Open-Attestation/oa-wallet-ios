@@ -31,7 +31,14 @@ class WalletViewController: UIViewController {
         let alert = UIAlertController(title: fileName, message: nil, preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "Save to wallet", style: .default , handler:{ (UIAlertAction)in
-            
+            let outputUrl = getDocumentsDirectory().appendingPathComponent(fileName)
+            do {
+                try _ = FileManager.default.replaceItemAt(outputUrl, withItemAt: url)
+                let input = try String(contentsOf: outputUrl)
+                print(input)
+            } catch {
+                print(error.localizedDescription)
+            }
         }))
         
         alert.addAction(UIAlertAction(title: "Verify", style: .default , handler:{ (UIAlertAction)in

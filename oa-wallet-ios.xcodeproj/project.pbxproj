@@ -15,6 +15,7 @@
 		1B3BAAA42939CCB200A5069A /* oa_wallet_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BAAA32939CCB200A5069A /* oa_wallet_iosTests.swift */; };
 		1B3BAAAE2939CCB200A5069A /* oa_wallet_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BAAAD2939CCB200A5069A /* oa_wallet_iosUITests.swift */; };
 		1B3BAAB02939CCB200A5069A /* oa_wallet_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BAAAF2939CCB200A5069A /* oa_wallet_iosUITestsLaunchTests.swift */; };
+		1B3BAABD2939FFB900A5069A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BAABC2939FFB900A5069A /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		1B3BAAA92939CCB200A5069A /* oa-wallet-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "oa-wallet-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B3BAAAD2939CCB200A5069A /* oa_wallet_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oa_wallet_iosUITests.swift; sourceTree = "<group>"; };
 		1B3BAAAF2939CCB200A5069A /* oa_wallet_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oa_wallet_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1B3BAABC2939FFB900A5069A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				1B3BAA952939CCB200A5069A /* Assets.xcassets */,
 				1B3BAA972939CCB200A5069A /* LaunchScreen.storyboard */,
 				1B3BAA9A2939CCB200A5069A /* Info.plist */,
+				1B3BAABC2939FFB900A5069A /* Utils.swift */,
 			);
 			path = "oa-wallet-ios";
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			files = (
 				1B3BAA912939CCB100A5069A /* WalletViewController.swift in Sources */,
 				1B3BAA8D2939CCB100A5069A /* AppDelegate.swift in Sources */,
+				1B3BAABD2939FFB900A5069A /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
