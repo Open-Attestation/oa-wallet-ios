@@ -436,6 +436,7 @@
 				DEVELOPMENT_TEAM = Q32A7VU6AF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "oa-wallet-ios/Info.plist";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -464,6 +465,7 @@
 				DEVELOPMENT_TEAM = Q32A7VU6AF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "oa-wallet-ios/Info.plist";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

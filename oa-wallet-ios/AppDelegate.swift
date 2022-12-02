@@ -18,5 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        // Ensure the URL is a file URL
+        guard url.isFileURL else { return false }
+        
+        return true
+    }
 }
 
