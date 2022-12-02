@@ -7,13 +7,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WalletViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(importTapped))
     }
 
-
+    @objc func importTapped() {
+        // Something cool here
+        print("tatata")
+    }
 }
 
