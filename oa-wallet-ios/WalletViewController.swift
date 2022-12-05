@@ -26,6 +26,19 @@ class WalletViewController: UIViewController {
         present(documentPicker, animated: true, completion: nil)
     }
     
+    func viewDocument(url: URL) {
+        do {
+            let fileName = url.lastPathComponent
+            let oaDocument = try String(contentsOf: url, encoding: .utf8)
+            let rendererVC = OaRendererViewController(oaDocument: oaDocument)
+            rendererVC.title = fileName
+            let navigationController = UINavigationController(rootViewController: rendererVC)
+            navigationController.modalPresentationStyle = .fullScreen
+            present(navigationController, animated: true)
+        }
+        catch {/* error handling here */}
+    }
+    
     func presentImportActions(url: URL) {
         let fileName = url.lastPathComponent
         let alert = UIAlertController(title: fileName, message: nil, preferredStyle: .actionSheet)
@@ -40,11 +53,11 @@ class WalletViewController: UIViewController {
         }))
         
         alert.addAction(UIAlertAction(title: "Verify", style: .default , handler:{ (UIAlertAction) in
-           
+            
         }))
         
         alert.addAction(UIAlertAction(title: "View", style: .default , handler:{ (UIAlertAction) in
-            
+            self.viewDocument(url: url)
         }))
         
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction) in

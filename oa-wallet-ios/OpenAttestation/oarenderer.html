@@ -1,0 +1,47 @@
+
+<html><head>
+    <title>iFrame Rendering</title>
+  <script src="https://unpkg.com/penpal@5.3.0/dist/penpal.min.js"></script>
+</head>
+    
+  <body>
+    <iframe id="iframe" src="<TEMPLATE_RENDERER_URL>" class sandbox="allow-scripts allow-same-origin allow-modals allow-popups" style="width: 100%; border: 0px; overflow: hidden;" height="466"></iframe>
+
+  <script type="text/javascript">
+    const iframe = document.getElementById("iframe");
+    let frame;
+
+    const oaDocument = <OA_DOCUMENT>;
+
+    const dispatch = (action) => {
+      const { type, payload } = action;
+      if (type === "UPDATE_HEIGHT") {
+        iframe.height = payload;
+      }
+    }
+
+    const connection = Penpal.connectToChild({
+      iframe,
+      methods: {
+        dispatch
+      }
+    });
+
+    const renderDocumentAction = {
+      type: "RENDER_DOCUMENT",
+      payload: {
+        document: oaDocument,
+      },
+    };
+
+    const renderDocument = () => {
+      if (!frame) console.warn("frame connection not established.")
+      frame.dispatch(renderDocumentAction);
+    };
+
+    connection.promise.then(child => {
+      frame = child;
+      renderDocument();
+    });
+  </script>
+</body></html>

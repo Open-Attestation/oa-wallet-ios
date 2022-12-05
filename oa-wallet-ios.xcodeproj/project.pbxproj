@@ -16,6 +16,9 @@
 		1B3BAAAE2939CCB200A5069A /* oa_wallet_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BAAAD2939CCB200A5069A /* oa_wallet_iosUITests.swift */; };
 		1B3BAAB02939CCB200A5069A /* oa_wallet_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BAAAF2939CCB200A5069A /* oa_wallet_iosUITestsLaunchTests.swift */; };
 		1B3BAABD2939FFB900A5069A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BAABC2939FFB900A5069A /* Utils.swift */; };
+		1B3BAABF293D85DA00A5069A /* OaRendererViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BAABE293D85DA00A5069A /* OaRendererViewController.swift */; };
+		1B3BAAC4293D888300A5069A /* oabundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 1B3BAAC3293D888300A5069A /* oabundle.js */; };
+		1B3BAAC6293D8C6400A5069A /* oarenderer.html in Resources */ = {isa = PBXBuildFile; fileRef = 1B3BAAC5293D8C6400A5069A /* oarenderer.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		1B3BAAAD2939CCB200A5069A /* oa_wallet_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oa_wallet_iosUITests.swift; sourceTree = "<group>"; };
 		1B3BAAAF2939CCB200A5069A /* oa_wallet_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oa_wallet_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1B3BAABC2939FFB900A5069A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		1B3BAABE293D85DA00A5069A /* OaRendererViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OaRendererViewController.swift; sourceTree = "<group>"; };
+		1B3BAAC3293D888300A5069A /* oabundle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = oabundle.js; sourceTree = "<group>"; };
+		1B3BAAC5293D8C6400A5069A /* oarenderer.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = oarenderer.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 		1B3BAA8B2939CCB100A5069A /* oa-wallet-ios */ = {
 			isa = PBXGroup;
 			children = (
+				1B3BAAC0293D882C00A5069A /* OpenAttestation */,
 				1B3BAA8C2939CCB100A5069A /* AppDelegate.swift */,
 				1B3BAA902939CCB100A5069A /* WalletViewController.swift */,
 				1B3BAA922939CCB100A5069A /* Main.storyboard */,
@@ -106,6 +113,7 @@
 				1B3BAA972939CCB200A5069A /* LaunchScreen.storyboard */,
 				1B3BAA9A2939CCB200A5069A /* Info.plist */,
 				1B3BAABC2939FFB900A5069A /* Utils.swift */,
+				1B3BAABE293D85DA00A5069A /* OaRendererViewController.swift */,
 			);
 			path = "oa-wallet-ios";
 			sourceTree = "<group>";
@@ -125,6 +133,15 @@
 				1B3BAAAF2939CCB200A5069A /* oa_wallet_iosUITestsLaunchTests.swift */,
 			);
 			path = "oa-wallet-iosUITests";
+			sourceTree = "<group>";
+		};
+		1B3BAAC0293D882C00A5069A /* OpenAttestation */ = {
+			isa = PBXGroup;
+			children = (
+				1B3BAAC3293D888300A5069A /* oabundle.js */,
+				1B3BAAC5293D8C6400A5069A /* oarenderer.html */,
+			);
+			path = OpenAttestation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +248,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B3BAAC4293D888300A5069A /* oabundle.js in Resources */,
 				1B3BAA992939CCB200A5069A /* LaunchScreen.storyboard in Resources */,
 				1B3BAA962939CCB200A5069A /* Assets.xcassets in Resources */,
 				1B3BAA942939CCB100A5069A /* Main.storyboard in Resources */,
+				1B3BAAC6293D8C6400A5069A /* oarenderer.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +280,7 @@
 				1B3BAA912939CCB100A5069A /* WalletViewController.swift in Sources */,
 				1B3BAA8D2939CCB100A5069A /* AppDelegate.swift in Sources */,
 				1B3BAABD2939FFB900A5069A /* Utils.swift in Sources */,
+				1B3BAABF293D85DA00A5069A /* OaRendererViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
