@@ -9,6 +9,7 @@ import UIKit
 import UniformTypeIdentifiers
 
 class WalletViewController: UIViewController {
+    let oa = OpenAttestation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,21 @@ class WalletViewController: UIViewController {
         documentPicker.allowsMultipleSelection = false
         documentPicker.modalPresentationStyle = .fullScreen
         present(documentPicker, animated: true, completion: nil)
+    }
+    
+    func verifyDocument(url: URL) {
+        do {
+            let oaDocument = try String(contentsOf: url, encoding: .utf8)
+            
+            oa.verifyDocument(view: self.view, oaDocument: oaDocument) { isValid in
+                let title = isValid ? "Verification successful" : "Verification failed"
+                let message = isValid ? "This document is valid" : "This document has been tampered with"
+                let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        catch {/* error handling here */}
     }
     
     func viewDocument(url: URL) {
@@ -53,7 +69,7 @@ class WalletViewController: UIViewController {
         }))
         
         alert.addAction(UIAlertAction(title: "Verify", style: .default , handler:{ (UIAlertAction) in
-            
+            self.verifyDocument(url: url)
         }))
         
         alert.addAction(UIAlertAction(title: "View", style: .default , handler:{ (UIAlertAction) in

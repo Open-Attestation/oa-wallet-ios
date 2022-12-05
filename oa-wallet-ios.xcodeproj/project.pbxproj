@@ -19,6 +19,7 @@
 		1B3BAABF293D85DA00A5069A /* OaRendererViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BAABE293D85DA00A5069A /* OaRendererViewController.swift */; };
 		1B3BAAC4293D888300A5069A /* oabundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 1B3BAAC3293D888300A5069A /* oabundle.js */; };
 		1B3BAAC6293D8C6400A5069A /* oarenderer.html in Resources */ = {isa = PBXBuildFile; fileRef = 1B3BAAC5293D8C6400A5069A /* oarenderer.html */; };
+		1B3BAAC8293DD0AA00A5069A /* OpenAttestation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BAAC7293DD0AA00A5069A /* OpenAttestation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		1B3BAABE293D85DA00A5069A /* OaRendererViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OaRendererViewController.swift; sourceTree = "<group>"; };
 		1B3BAAC3293D888300A5069A /* oabundle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = oabundle.js; sourceTree = "<group>"; };
 		1B3BAAC5293D8C6400A5069A /* oarenderer.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = oarenderer.html; sourceTree = "<group>"; };
+		1B3BAAC7293DD0AA00A5069A /* OpenAttestation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAttestation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			children = (
 				1B3BAAC3293D888300A5069A /* oabundle.js */,
 				1B3BAAC5293D8C6400A5069A /* oarenderer.html */,
+				1B3BAAC7293DD0AA00A5069A /* OpenAttestation.swift */,
 			);
 			path = OpenAttestation;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B3BAA912939CCB100A5069A /* WalletViewController.swift in Sources */,
+				1B3BAAC8293DD0AA00A5069A /* OpenAttestation.swift in Sources */,
 				1B3BAA8D2939CCB100A5069A /* AppDelegate.swift in Sources */,
 				1B3BAABD2939FFB900A5069A /* Utils.swift in Sources */,
 				1B3BAABF293D85DA00A5069A /* OaRendererViewController.swift in Sources */,
