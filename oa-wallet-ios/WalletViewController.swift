@@ -46,11 +46,27 @@ class WalletViewController: UIViewController {
         do {
             let fileName = url.lastPathComponent
             let oaDocument = try String(contentsOf: url, encoding: .utf8)
-            let rendererVC = OaRendererViewController(oaDocument: oaDocument)
-            rendererVC.title = fileName
-            let navigationController = UINavigationController(rootViewController: rendererVC)
-            navigationController.modalPresentationStyle = .fullScreen
-            present(navigationController, animated: true)
+            
+            oa.verifyDocument(view: self.view, oaDocument: oaDocument) { isValid in
+                
+                if isValid {
+                    let rendererVC = OaRendererViewController(oaDocument: oaDocument)
+                    rendererVC.title = fileName
+                    let navigationController = UINavigationController(rootViewController: rendererVC)
+                    navigationController.modalPresentationStyle = .fullScreen
+                    self.present(navigationController, animated: true)
+                }
+                else {
+                    let title = "Invalid document"
+                    let message = "This document has been tampered with and cannot be displayed"
+                    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            
+            
+            
         }
         catch {/* error handling here */}
     }
