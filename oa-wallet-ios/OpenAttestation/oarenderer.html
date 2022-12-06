@@ -2,10 +2,11 @@
 <html><head>
     <title>iFrame Rendering</title>
   <script src="https://unpkg.com/penpal@5.3.0/dist/penpal.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
     
   <body>
-    <iframe id="iframe" src="<TEMPLATE_RENDERER_URL>" class sandbox="allow-scripts allow-same-origin allow-modals allow-popups" style="width: 100%; border: 0px; overflow: hidden;" height="466"></iframe>
+    <iframe id="iframe" src="<TEMPLATE_RENDERER_URL>" class sandbox="allow-scripts allow-same-origin allow-modals allow-popups" style="width: 100%; border: 0px; overflow: hidden" height="466"></iframe>
 
   <script type="text/javascript">
     const iframe = document.getElementById("iframe");
