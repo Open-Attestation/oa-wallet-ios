@@ -9,18 +9,33 @@ import UIKit
 import UniformTypeIdentifiers
 
 class WalletViewController: UIViewController {
+    
     let oa = OpenAttestation()
+    var oaDocuments: [URL] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         title = "Wallet"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(importTapped))
+        
+        let fileManager = FileManager.default
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        do {
+            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
+            self.oaDocuments = fileURLs.filter({ url in
+                UTType(filenameExtension: url.pathExtension) == .oa
+            })
+            print(self.oaDocuments)
+        } catch {
+            print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
+        }
+        
+        collectionView.dataSource = self
     }
     
     @objc func importTapped() {
-        guard let oadocUTType = UTType("com.openattestation.document") else { return }
-        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [oadocUTType], asCopy: true)
+        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.oa], asCopy: true)
         documentPicker.delegate = self
         documentPicker.allowsMultipleSelection = false
         documentPicker.modalPresentationStyle = .fullScreen
@@ -48,7 +63,6 @@ class WalletViewController: UIViewController {
             let oaDocument = try String(contentsOf: url, encoding: .utf8)
             
             oa.verifyDocument(view: self.view, oaDocument: oaDocument) { isValid in
-                
                 if isValid {
                     let rendererVC = OaRendererViewController(oaDocument: oaDocument)
                     rendererVC.title = fileName
@@ -64,9 +78,6 @@ class WalletViewController: UIViewController {
                     self.present(alert, animated: true, completion: nil)
                 }
             }
-            
-            
-            
         }
         catch {/* error handling here */}
     }

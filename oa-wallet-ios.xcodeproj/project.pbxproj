@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B19DD4D2940718600D97695 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B19DD4C2940718600D97695 /* Extensions.swift */; };
 		1B3BAA8D2939CCB100A5069A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BAA8C2939CCB100A5069A /* AppDelegate.swift */; };
 		1B3BAA912939CCB100A5069A /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BAA902939CCB100A5069A /* WalletViewController.swift */; };
 		1B3BAA942939CCB100A5069A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B3BAA922939CCB100A5069A /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B19DD4C2940718600D97695 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1B3BAA892939CCB100A5069A /* oa-wallet-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "oa-wallet-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B3BAA8C2939CCB100A5069A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B3BAA902939CCB100A5069A /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				1B3BAA9A2939CCB200A5069A /* Info.plist */,
 				1B3BAABC2939FFB900A5069A /* Utils.swift */,
 				1B3BAABE293D85DA00A5069A /* OaRendererViewController.swift */,
+				1B19DD4C2940718600D97695 /* Extensions.swift */,
 			);
 			path = "oa-wallet-ios";
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B3BAA912939CCB100A5069A /* WalletViewController.swift in Sources */,
+				1B19DD4D2940718600D97695 /* Extensions.swift in Sources */,
 				1B3BAAC8293DD0AA00A5069A /* OpenAttestation.swift in Sources */,
 				1B3BAA8D2939CCB100A5069A /* AppDelegate.swift in Sources */,
 				1B3BAABD2939FFB900A5069A /* Utils.swift in Sources */,
