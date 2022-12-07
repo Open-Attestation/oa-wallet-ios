@@ -84,7 +84,7 @@ class WalletViewController: UIViewController {
         catch {/* error handling here */}
     }
     
-    func presentImportActions(url: URL) {
+    func presentImportOptions(url: URL) {
         let fileName = url.lastPathComponent
         let alert = UIAlertController(title: fileName, message: nil, preferredStyle: .actionSheet)
         
@@ -114,12 +114,34 @@ class WalletViewController: UIViewController {
             
         })
     }
+    
+    func presentDocumentOptions(url: URL) {
+        let fileName = url.lastPathComponent
+        let alert = UIAlertController(title: fileName, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Verify", style: .default , handler:{ (UIAlertAction) in
+            self.verifyDocument(url: url)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "View", style: .default , handler:{ (UIAlertAction) in
+            self.viewDocument(url: url)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction) in
+            
+        }))
+        
+        alert.popoverPresentationController?.sourceView = self.view
+        self.present(alert, animated: true, completion: {
+            
+        })
+    }
 }
 
 extension WalletViewController: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         guard let url = urls.first else { return }
-        presentImportActions(url: url)
+        presentImportOptions(url: url)
     }
 }
 
@@ -131,9 +153,14 @@ extension WalletViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = documentTableView.dequeueReusableCell(withIdentifier: "DocumentTableViewCell", for: indexPath) as! DocumentTableViewCell
         
-        let fileName = oaDocuments[indexPath.row].lastPathComponent
-        
+        let url = oaDocuments[indexPath.row]
+        let fileName = url.lastPathComponent
         cell.filenameLabel.text = fileName
+        
+        cell.onOptionsTapped = {
+            self.presentDocumentOptions(url: url)
+        }
+        
         return cell
     }
 }

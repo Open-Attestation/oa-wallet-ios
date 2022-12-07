@@ -22,23 +22,35 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DocumentTableViewCell" id="VYN-la-uV5" customClass="DocumentTableViewCell" customModule="oa_wallet_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="37"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="47.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VYN-la-uV5" id="hC0-E5-8mU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAP-lr-IWM" userLabel="filenameLabel">
-                                                    <rect key="frame" x="16" y="8" width="382" height="21"/>
+                                                    <rect key="frame" x="16" y="8" width="382" height="31.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZO-ev-Wwa" userLabel="optionsButton">
+                                                    <rect key="frame" x="369" y="8" width="45" height="31.5"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="ellipsis.circle" catalog="system"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="ellipsis.circle" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="optionsTapped:" destination="VYN-la-uV5" eventType="touchUpInside" id="FKN-cc-zuz"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="LAP-lr-IWM" secondAttribute="trailing" constant="16" id="0nV-tH-3tA"/>
+                                                <constraint firstItem="EZO-ev-Wwa" firstAttribute="top" secondItem="hC0-E5-8mU" secondAttribute="top" constant="8" id="3Wk-zj-55k"/>
                                                 <constraint firstItem="LAP-lr-IWM" firstAttribute="leading" secondItem="hC0-E5-8mU" secondAttribute="leading" constant="16" id="8Gu-HK-fqI"/>
                                                 <constraint firstItem="LAP-lr-IWM" firstAttribute="top" secondItem="hC0-E5-8mU" secondAttribute="top" constant="8" id="CxC-uH-OO6"/>
+                                                <constraint firstAttribute="bottom" secondItem="EZO-ev-Wwa" secondAttribute="bottom" constant="8" id="EDC-xW-p4W"/>
+                                                <constraint firstAttribute="trailing" secondItem="EZO-ev-Wwa" secondAttribute="trailing" id="RBr-B7-cW7"/>
                                                 <constraint firstAttribute="bottom" secondItem="LAP-lr-IWM" secondAttribute="bottom" constant="8" id="tdB-kL-SpN"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -68,6 +80,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
