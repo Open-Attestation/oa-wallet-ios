@@ -9,6 +9,7 @@ import UIKit
 import UniformTypeIdentifiers
 
 class WalletViewController: UIViewController {
+    @IBOutlet weak var documentTableView: UITableView!
     
     let oa = OpenAttestation()
     var oaDocuments: [URL] = []
@@ -31,7 +32,8 @@ class WalletViewController: UIViewController {
             print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
         }
         
-        collectionView.dataSource = self
+        documentTableView.dataSource = self
+        documentTableView.delegate = self
     }
     
     @objc func importTapped() {
@@ -118,5 +120,26 @@ extension WalletViewController: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         guard let url = urls.first else { return }
         presentImportActions(url: url)
+    }
+}
+
+extension WalletViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return oaDocuments.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = documentTableView.dequeueReusableCell(withIdentifier: "DocumentTableViewCell", for: indexPath) as! DocumentTableViewCell
+        
+        let fileName = oaDocuments[indexPath.row].lastPathComponent
+        
+        cell.filenameLabel.text = fileName
+        return cell
+    }
+}
+
+extension WalletViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewDocument(url: oaDocuments[indexPath.row])
     }
 }

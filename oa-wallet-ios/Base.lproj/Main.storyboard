@@ -16,9 +16,51 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LZS-Y0-ywB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DocumentTableViewCell" id="VYN-la-uV5" customClass="DocumentTableViewCell" customModule="oa_wallet_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="37"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VYN-la-uV5" id="hC0-E5-8mU">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAP-lr-IWM" userLabel="filenameLabel">
+                                                    <rect key="frame" x="16" y="8" width="382" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="LAP-lr-IWM" secondAttribute="trailing" constant="16" id="0nV-tH-3tA"/>
+                                                <constraint firstItem="LAP-lr-IWM" firstAttribute="leading" secondItem="hC0-E5-8mU" secondAttribute="leading" constant="16" id="8Gu-HK-fqI"/>
+                                                <constraint firstItem="LAP-lr-IWM" firstAttribute="top" secondItem="hC0-E5-8mU" secondAttribute="top" constant="8" id="CxC-uH-OO6"/>
+                                                <constraint firstAttribute="bottom" secondItem="LAP-lr-IWM" secondAttribute="bottom" constant="8" id="tdB-kL-SpN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="filenameLabel" destination="LAP-lr-IWM" id="a7N-Li-vFK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LZS-Y0-ywB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8ov-c7-hcB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LZS-Y0-ywB" secondAttribute="bottom" id="fM0-k9-ZGe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LZS-Y0-ywB" secondAttribute="trailing" id="nEt-mg-lSH"/>
+                            <constraint firstItem="LZS-Y0-ywB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pFY-8Z-vMw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="documentTableView" destination="LZS-Y0-ywB" id="Vyj-iA-Hk2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
