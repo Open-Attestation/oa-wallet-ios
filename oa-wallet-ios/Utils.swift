@@ -14,3 +14,17 @@ func getDocumentsDirectory() -> URL {
     // just send back the first one, which ought to be the only one
     return paths[0]
 }
+
+func readDocument(url: URL) -> String? {
+    do {
+        _ = url.startAccessingSecurityScopedResource()
+        let document = try String(contentsOf: url, encoding: .utf8)
+        url.stopAccessingSecurityScopedResource()
+        
+        return document
+    }
+    catch {
+        print(error.localizedDescription)
+    }
+    return nil
+}

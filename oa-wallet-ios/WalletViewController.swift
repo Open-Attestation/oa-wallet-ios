@@ -59,47 +59,40 @@ class WalletViewController: UIViewController {
     }
     
     func verifyDocument(url: URL) {
-        do {
-            let oaDocument = try String(contentsOf: url, encoding: .utf8)
-            
-            showLoadingIndicator()
-            oa.verifyDocument(view: self.view, oaDocument: oaDocument) { isValid in
-                self.hideLoadingIndicator()
-                let title = isValid ? "Verification successful" : "Verification failed"
-                let message = isValid ? "This document is valid" : "This document has been tampered with"
+        guard let oaDocument = readDocument(url: url) else { return }
+        showLoadingIndicator()
+        oa.verifyDocument(view: self.view, oaDocument: oaDocument) { isValid in
+            self.hideLoadingIndicator()
+            let title = isValid ? "Verification successful" : "Verification failed"
+            let message = isValid ? "This document is valid" : "This document has been tampered with"
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func viewDocument(url: URL) {
+        let fileName = url.lastPathComponent
+        guard let oaDocument = readDocument(url: url) else { return }
+        
+        showLoadingIndicator()
+        oa.verifyDocument(view: self.view, oaDocument: oaDocument) { isValid in
+            self.hideLoadingIndicator()
+            if isValid {
+                let rendererVC = OaRendererViewController(oaDocument: oaDocument)
+                rendererVC.title = fileName
+                let navigationController = UINavigationController(rootViewController: rendererVC)
+                navigationController.modalPresentationStyle = .fullScreen
+                self.present(navigationController, animated: true)
+            }
+            else {
+                let title = "Invalid document"
+                let message = "This document has been tampered with and cannot be displayed"
                 let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:nil))
                 self.present(alert, animated: true, completion: nil)
             }
         }
-        catch {/* error handling here */}
-    }
-    
-    func viewDocument(url: URL) {
-        do {
-            let fileName = url.lastPathComponent
-            let oaDocument = try String(contentsOf: url, encoding: .utf8)
-            
-            showLoadingIndicator()
-            oa.verifyDocument(view: self.view, oaDocument: oaDocument) { isValid in
-                self.hideLoadingIndicator()
-                if isValid {
-                    let rendererVC = OaRendererViewController(oaDocument: oaDocument)
-                    rendererVC.title = fileName
-                    let navigationController = UINavigationController(rootViewController: rendererVC)
-                    navigationController.modalPresentationStyle = .fullScreen
-                    self.present(navigationController, animated: true)
-                }
-                else {
-                    let title = "Invalid document"
-                    let message = "This document has been tampered with and cannot be displayed"
-                    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:nil))
-                    self.present(alert, animated: true, completion: nil)
-                }
-            }
-        }
-        catch {/* error handling here */}
     }
     
     func deleteDocumentFromWallet(url: URL) {
@@ -118,8 +111,18 @@ class WalletViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Save to wallet", style: .default , handler:{ (UIAlertAction) in
             let outputUrl = getDocumentsDirectory().appendingPathComponent(fileName)
+            
+            if FileManager.default.fileExists(atPath: outputUrl.path) {
+                let erroralert = UIAlertController(title: "Failed to import document", message: "\(fileName) already exists in your wallet.", preferredStyle: .alert)
+                erroralert.addAction(.init(title: "Dismiss", style: .cancel))
+                self.present(erroralert, animated: true, completion: nil)
+                
+                return
+            }
             do {
-                try _ = FileManager.default.replaceItemAt(outputUrl, withItemAt: url)
+                _ = url.startAccessingSecurityScopedResource()
+                try FileManager.default.copyItem(at: url, to: outputUrl)
+                url.stopAccessingSecurityScopedResource()
             } catch {
                 print(error.localizedDescription)
             }
@@ -158,10 +161,7 @@ class WalletViewController: UIViewController {
         }))
         
         alert.addAction(UIAlertAction(title: "Share", style: .default , handler:{ (UIAlertAction) in
-            // Make the activityViewContoller which shows the share-view
             let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-
-            // Show the share-view
             self.present(activityViewController, animated: true, completion: nil)
         }))
         

@@ -22,7 +22,6 @@
 			<array>
 				<string>public.data</string>
 				<string>public.content</string>
-				<string>public.json</string>
 			</array>
 			<key>UTTypeDescription</key>
 			<string>OpenAttestation document</string>
