@@ -141,6 +141,14 @@ class WalletViewController: UIViewController {
             self.viewDocument(url: url)
         }))
         
+        alert.addAction(UIAlertAction(title: "Share", style: .default , handler:{ (UIAlertAction) in
+            // Make the activityViewContoller which shows the share-view
+            let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+
+            // Show the share-view
+            self.present(activityViewController, animated: true, completion: nil)
+        }))
+        
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive , handler:{ (UIAlertAction) in
             self.deleteDocumentFromWallet(url: url)
         }))
