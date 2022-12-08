@@ -6,16 +6,19 @@
 //
 
 import UIKit
+import UniformTypeIdentifiers
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window:UIWindow?
+    var walletVC: WalletViewController?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() {
-            let navigationController = UINavigationController(rootViewController: vc)
+        walletVC = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        if let walletVC = self.walletVC {
+            let navigationController = UINavigationController(rootViewController: walletVC)
             window?.rootViewController = navigationController
             window?.makeKeyAndVisible()
         }
@@ -24,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        // Ensure the URL is a file URL
-        guard url.isFileURL else { return false }
+        guard UTType(filenameExtension: url.pathExtension) == .oa else { return false }
+        walletVC?.presentImportOptions(url: url)
         
         return true
     }
