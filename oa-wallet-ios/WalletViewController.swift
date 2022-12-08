@@ -10,6 +10,8 @@ import UniformTypeIdentifiers
 
 class WalletViewController: UIViewController {
     @IBOutlet weak var documentTableView: UITableView!
+    @IBOutlet weak var loadingIndicatorView: UIView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     let oa = OpenAttestation()
     var oaDocuments: [URL] = []
@@ -22,6 +24,16 @@ class WalletViewController: UIViewController {
         fetchDocuments()
         documentTableView.dataSource = self
         documentTableView.delegate = self
+    }
+    
+    func showLoadingIndicator() {
+        loadingIndicatorView.isHidden = false
+        loadingIndicator.startAnimating()
+    }
+    
+    func hideLoadingIndicator() {
+        loadingIndicatorView.isHidden = true
+        loadingIndicator.stopAnimating()
     }
     
     func fetchDocuments() {
@@ -50,7 +62,9 @@ class WalletViewController: UIViewController {
         do {
             let oaDocument = try String(contentsOf: url, encoding: .utf8)
             
+            showLoadingIndicator()
             oa.verifyDocument(view: self.view, oaDocument: oaDocument) { isValid in
+                self.hideLoadingIndicator()
                 let title = isValid ? "Verification successful" : "Verification failed"
                 let message = isValid ? "This document is valid" : "This document has been tampered with"
                 let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -66,7 +80,9 @@ class WalletViewController: UIViewController {
             let fileName = url.lastPathComponent
             let oaDocument = try String(contentsOf: url, encoding: .utf8)
             
+            showLoadingIndicator()
             oa.verifyDocument(view: self.view, oaDocument: oaDocument) { isValid in
+                self.hideLoadingIndicator()
                 if isValid {
                     let rendererVC = OaRendererViewController(oaDocument: oaDocument)
                     rendererVC.title = fileName
