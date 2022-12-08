@@ -19,7 +19,12 @@ class WalletViewController: UIViewController {
         // Do any additional setup after loading the view.
         title = "Wallet"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(importTapped))
-        
+        fetchDocuments()
+        documentTableView.dataSource = self
+        documentTableView.delegate = self
+    }
+    
+    func fetchDocuments() {
         let fileManager = FileManager.default
         let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
         do {
@@ -31,9 +36,6 @@ class WalletViewController: UIViewController {
         } catch {
             print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
         }
-        
-        documentTableView.dataSource = self
-        documentTableView.delegate = self
     }
     
     @objc func importTapped() {
@@ -84,6 +86,16 @@ class WalletViewController: UIViewController {
         catch {/* error handling here */}
     }
     
+    func deleteDocumentFromWallet(url: URL) {
+        do {
+            try FileManager.default.removeItem(at: url)
+        } catch {
+            print(error.localizedDescription)
+        }
+        fetchDocuments()
+        documentTableView.reloadData()
+    }
+    
     func presentImportOptions(url: URL) {
         let fileName = url.lastPathComponent
         let alert = UIAlertController(title: fileName, message: nil, preferredStyle: .actionSheet)
@@ -95,6 +107,8 @@ class WalletViewController: UIViewController {
             } catch {
                 print(error.localizedDescription)
             }
+            self.fetchDocuments()
+            self.documentTableView.reloadData()
         }))
         
         alert.addAction(UIAlertAction(title: "Verify", style: .default , handler:{ (UIAlertAction) in
@@ -125,6 +139,10 @@ class WalletViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "View", style: .default , handler:{ (UIAlertAction) in
             self.viewDocument(url: url)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive , handler:{ (UIAlertAction) in
+            self.deleteDocumentFromWallet(url: url)
         }))
         
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction) in
@@ -168,5 +186,6 @@ extension WalletViewController: UITableViewDataSource {
 extension WalletViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewDocument(url: oaDocuments[indexPath.row])
+        documentTableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
     }
 }
