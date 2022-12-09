@@ -13,6 +13,8 @@ class WalletViewController: UIViewController {
     @IBOutlet weak var loadingIndicatorView: UIView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
+    let reachability = try! Reachability()
+    
     let oa = OpenAttestation()
     var oaDocuments: [URL] = []
     
@@ -24,6 +26,23 @@ class WalletViewController: UIViewController {
         fetchDocuments()
         documentTableView.dataSource = self
         documentTableView.delegate = self
+        
+        reachability.whenReachable = { reachability in
+            if reachability.connection == .wifi {
+                print("Reachable via WiFi")
+            } else {
+                print("Reachable via Cellular")
+            }
+        }
+        reachability.whenUnreachable = { _ in
+            print("Not reachable")
+        }
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
     }
     
     func showLoadingIndicator() {
