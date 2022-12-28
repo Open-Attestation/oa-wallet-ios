@@ -1,5 +1,5 @@
 PODS:
-  - OpenAttestationIOS (0.1.1)
+  - OpenAttestationIOS (0.1.2)
 
 DEPENDENCIES:
   - OpenAttestationIOS
@@ -9,7 +9,7 @@ SPEC REPOS:
     - OpenAttestationIOS
 
 SPEC CHECKSUMS:
-  OpenAttestationIOS: feb9d447395d3bfc23d0f367a0403bfb225a382e
+  OpenAttestationIOS: 997570c79ad7b64520bb2cc9531ff3e81a28ccb3
 
 PODFILE CHECKSUM: 3c45c89248f9e8ab29cecaed2e611246244b1dfc
 

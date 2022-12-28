@@ -14,7 +14,7 @@ public class OpenAttestation: NSObject {
     var completion: verifyDocumentHandler?
     var webView: WKWebView!
     
-    public func verifyDocument(view: UIView, oaDocument: String, completion: @escaping verifyDocumentHandler) {
+    public func verifyDocument(oaDocument: String, completion: @escaping verifyDocumentHandler) {
         self.oaDocument = oaDocument
         self.completion = completion
 
@@ -44,7 +44,6 @@ public class OpenAttestation: NSObject {
         
         webView = WKWebView(frame: .zero, configuration: webViewConfiguration)
         webView.navigationDelegate = self
-        view.addSubview(webView)
         webView.loadHTMLString("<html><head></head><body></body></html>", baseURL: nil)
     }
 }
@@ -61,7 +60,6 @@ extension OpenAttestation: WKNavigationDelegate {
             
             if let result = result as? Bool {
                 print(result)
-                webView.removeFromSuperview()
                 self.completion?(result)
                 
             }

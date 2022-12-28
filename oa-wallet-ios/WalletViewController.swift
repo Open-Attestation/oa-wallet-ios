@@ -81,7 +81,7 @@ class WalletViewController: UIViewController {
     func verifyDocument(url: URL) {
         guard let oaDocument = readDocument(url: url) else { return }
         showLoadingIndicator()
-        oa.verifyDocument(view: self.view, oaDocument: oaDocument) { isValid in
+        oa.verifyDocument(oaDocument: oaDocument) { isValid in
             self.hideLoadingIndicator()
             let title = isValid ? "Verification successful" : "Verification failed"
             let message = isValid ? "This document is valid" : "This document has been tampered with"
@@ -96,7 +96,7 @@ class WalletViewController: UIViewController {
         guard let oaDocument = readDocument(url: url) else { return }
         
         showLoadingIndicator()
-        oa.verifyDocument(view: self.view, oaDocument: oaDocument) { isValid in
+        oa.verifyDocument(oaDocument: oaDocument) { isValid in
             self.hideLoadingIndicator()
             if isValid {
                 let rendererVC = OaRendererViewController(oaDocument: oaDocument)
