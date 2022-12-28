@@ -9,15 +9,22 @@ import UIKit
 import WebKit
 
 public typealias verifyDocumentHandler = (_ isValid: Bool) -> Void
-class OpenAttestation: NSObject {
+public class OpenAttestation: NSObject {
     var oaDocument: String?
     var completion: verifyDocumentHandler?
     var webView: WKWebView!
     
-    func verifyDocument(view: UIView, oaDocument: String, completion: @escaping verifyDocumentHandler) {
+    public func verifyDocument(view: UIView, oaDocument: String, completion: @escaping verifyDocumentHandler) {
         self.oaDocument = oaDocument
         self.completion = completion
-        guard let path = Bundle.main.path(forResource: "oabundle", ofType: "js") else {
+
+        let frameworkBundle = Bundle(for: OpenAttestation.self)
+        let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("OpenAttestationIOS.bundle")
+        guard let resourceBundle = Bundle(url: bundleURL!) else {
+            print("Resource bundle for OpenAttestationIOS.bundle not found")
+            return
+        }
+        guard let path = resourceBundle.path(forResource: "oabundle", ofType: "js") else {
             print("oabundle.js not found")
             return
         }
@@ -43,7 +50,7 @@ class OpenAttestation: NSObject {
 }
 
 extension OpenAttestation: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         guard let oaDocument = self.oaDocument else { return }
         let scriptSource = "verifySignature(\(oaDocument));"
         
@@ -61,8 +68,9 @@ extension OpenAttestation: WKNavigationDelegate {
         })
     }
     
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+    public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         print(error)
     }
+    
 
 }

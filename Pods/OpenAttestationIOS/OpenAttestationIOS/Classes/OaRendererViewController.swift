@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class OaRendererViewController: UIViewController {
+public class OaRendererViewController: UIViewController {
     enum LoadingState {
         case loading, complete
     }
@@ -17,7 +17,7 @@ class OaRendererViewController: UIViewController {
     var webView: WKWebView!
     var loadingState: LoadingState = .loading
     
-    init(oaDocument: String) {
+    public init(oaDocument: String) {
         self.oaDocument = oaDocument
         super.init(nibName: nil, bundle: nil)
     }
@@ -26,11 +26,17 @@ class OaRendererViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(closeTapped))
         
-        guard let path = Bundle.main.path(forResource: "oabundle", ofType: "js") else {
+        let frameworkBundle = Bundle(for: OpenAttestation.self)
+        let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("OpenAttestationIOS.bundle")
+        guard let resourceBundle = Bundle(url: bundleURL!) else {
+            print("Resource bundle for OpenAttestationIOS.bundle not found")
+            return
+        }
+        guard let path = resourceBundle.path(forResource: "oabundle", ofType: "js") else {
             print("oabundle.js not found")
             return
         }
@@ -60,7 +66,7 @@ class OaRendererViewController: UIViewController {
 }
 
 extension OaRendererViewController: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         switch self.loadingState {
         case .loading:
             let getDataScript = "getData(\(oaDocument));"
@@ -74,7 +80,13 @@ extension OaRendererViewController: WKNavigationDelegate {
                 guard let template = document["$template"] as? [String: Any] else { return }
                 guard let templateUrl = template["url"] as? String else { return }
                 
-                guard let path = Bundle.main.path(forResource: "oarenderer", ofType: "html") else {
+                let frameworkBundle = Bundle(for: OpenAttestation.self)
+                let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("OpenAttestationIOS.bundle")
+                guard let resourceBundle = Bundle(url: bundleURL!) else {
+                    print("Resource bundle for OpenAttestationIOS.bundle not found")
+                    return
+                }
+                guard let path = resourceBundle.path(forResource: "oarenderer", ofType: "html") else {
                     print("oarenderer.html not found")
                     return
                 }

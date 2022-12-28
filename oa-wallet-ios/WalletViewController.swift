@@ -7,6 +7,7 @@
 
 import UIKit
 import UniformTypeIdentifiers
+import OpenAttestationIOS
 
 class WalletViewController: UIViewController {
     @IBOutlet weak var documentTableView: UITableView!

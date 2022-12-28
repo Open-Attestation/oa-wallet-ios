@@ -1,0 +1,6 @@
+framework module Pods_oa_wallet_ios_oa_wallet_iosUITests {
+  umbrella header "Pods-oa-wallet-ios-oa-wallet-iosUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

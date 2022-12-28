@@ -1,0 +1,6 @@
+framework module Pods_oa_wallet_iosTests {
+  umbrella header "Pods-oa-wallet-iosTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
