@@ -1,7 +1,6 @@
 
 <html><head>
     <title>iFrame Rendering</title>
-  <script src="https://unpkg.com/penpal@5.3.0/dist/penpal.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=0.5" />
 </head>
     
@@ -21,7 +20,7 @@
       }
     }
 
-    const connection = Penpal.connectToChild({
+    const connection = connectToChild({
       iframe,
       methods: {
         dispatch
