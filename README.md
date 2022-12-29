@@ -10,8 +10,7 @@ The OA Wallet iOS app is a reference implementation of how iOS apps can handle O
 
 
 ## Setup
-This project uses [CocoaPods](https://cocoapods.org/)
-Run the command in the project root directory
+This project uses [CocoaPods](https://cocoapods.org/), run the command in the project root directory:
 ```
 pod install
 ``` 
