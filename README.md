@@ -9,6 +9,15 @@ The OA Wallet iOS app is a reference implementation of how iOS apps can handle O
 - View the rendered `.oa` document
 
 
+## Setup
+This project uses [CocoaPods](https://cocoapods.org/)
+Run the command in the project root directory
+```
+pod install
+``` 
+and open the project using `oa-wallet-ios.xcworkspace`
+
+
 ## License
 
 oa-wallet-ios is available under the Apache-2.0 license. See the LICENSE file for more info.
