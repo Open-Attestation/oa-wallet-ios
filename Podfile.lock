@@ -1,16 +1,16 @@
 PODS:
-  - OpenAttestationIOS (0.1.3)
+  - OpenAttestationIOS (0.1.4)
 
 DEPENDENCIES:
   - OpenAttestationIOS
 
 SPEC REPOS:
-  "git@github.com:Open-Attestation/ios-cocoapods-spec-repo.git":
+  trunk:
     - OpenAttestationIOS
 
 SPEC CHECKSUMS:
-  OpenAttestationIOS: bd1b5f480c475ddbd4048aa75f167d5020ef673e
+  OpenAttestationIOS: 0ab96c83cbdaf9e6b9ece40ed06b63b207efbeea
 
-PODFILE CHECKSUM: 3c45c89248f9e8ab29cecaed2e611246244b1dfc
+PODFILE CHECKSUM: af7a581420a8b95471b3e2907f4e059cccf2791c
 
 COCOAPODS: 1.11.3

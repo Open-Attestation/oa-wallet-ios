@@ -1,5 +1,5 @@
 # oa-wallet-ios
-The OA Wallet iOS app is a reference implementation of how iOS apps can handle OpenAttestation documents using the [OpenAttestationIOS](https://github.com/Open-Attestation/open-attestation-ios) framework.
+The OA Wallet iOS app is a reference implementation of how iOS apps can handle [OpenAttestation](https://www.openattestation.com/) documents using the [OpenAttestationIOS](https://github.com/Open-Attestation/open-attestation-ios) framework.
 
 ## Features
 

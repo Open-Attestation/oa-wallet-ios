@@ -187,7 +187,7 @@
 				1B3BAA852939CCB100A5069A /* Sources */,
 				1B3BAA862939CCB100A5069A /* Frameworks */,
 				1B3BAA872939CCB100A5069A /* Resources */,
-				C3FE542A343D4FB0600B0FCE /* [CP] Embed Pods Frameworks */,
+				D901523BDE921CA85F9776E8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -225,7 +225,7 @@
 				1B3BAAA52939CCB200A5069A /* Sources */,
 				1B3BAAA62939CCB200A5069A /* Frameworks */,
 				1B3BAAA72939CCB200A5069A /* Resources */,
-				A1B5607E84F3DF50213DA4C8 /* [CP] Embed Pods Frameworks */,
+				AFB81E23F48150244011BE79 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -374,7 +374,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A1B5607E84F3DF50213DA4C8 /* [CP] Embed Pods Frameworks */ = {
+		AFB81E23F48150244011BE79 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -391,7 +391,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-oa-wallet-ios-oa-wallet-iosUITests/Pods-oa-wallet-ios-oa-wallet-iosUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C3FE542A343D4FB0600B0FCE /* [CP] Embed Pods Frameworks */ = {
+		D901523BDE921CA85F9776E8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

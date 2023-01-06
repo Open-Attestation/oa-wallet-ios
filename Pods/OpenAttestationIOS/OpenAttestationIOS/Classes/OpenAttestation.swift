@@ -14,6 +14,19 @@ public class OpenAttestation: NSObject {
     var completion: verifyDocumentHandler?
     var webView: WKWebView!
     
+    /// verifyDocument takes a wrapped document and performs a verifysignature on it. A boolean indicating if the document is valid is returned to the input completion handler.
+    ///
+    /// Use this method to check if the wrapped document is valid.
+    ///
+    ///     let oa = OpenAttestation()
+    ///     oa.verifyDocument(oaDocument: oaDocument) { isValid in
+    ///     if (isValid) {
+    ///             // Document is valid
+    ///         }
+    ///     }
+    ///
+    /// - Parameter oaDocument: The wrapped OpenAttestation document.
+    /// - Parameter completion: A closure with a boolean isValid parameter that states if the input oaDocument is valid
     public func verifyDocument(oaDocument: String, completion: @escaping verifyDocumentHandler) {
         self.oaDocument = oaDocument
         self.completion = completion

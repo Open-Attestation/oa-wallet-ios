@@ -8,6 +8,17 @@
 import UIKit
 import WebKit
 
+/// OaRendererViewController is a UIViewController that takes a wrapped document and renders the document template if the provided document is valid.
+///
+/// Use this ViewController to render the document template
+///
+///     let rendererVC = OaRendererViewController(oaDocument: oaDocument)
+///     rendererVC.title = "<DOCUMENT NAME>"
+///     let navigationController = UINavigationController(rootViewController: rendererVC)
+///     navigationController.modalPresentationStyle = .fullScreen
+///     self.present(navigationController, animated: true)
+///
+/// - Parameter oaDocument: The wrapped OpenAttestation document.
 public class OaRendererViewController: UIViewController {
     enum LoadingState {
         case loading, complete
