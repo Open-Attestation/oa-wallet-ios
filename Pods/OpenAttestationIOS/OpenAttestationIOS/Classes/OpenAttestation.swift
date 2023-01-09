@@ -34,16 +34,16 @@ public class OpenAttestation: NSObject {
         let frameworkBundle = Bundle(for: OpenAttestation.self)
         let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("OpenAttestationIOS.bundle")
         guard let resourceBundle = Bundle(url: bundleURL!) else {
-            print("Resource bundle for OpenAttestationIOS.bundle not found")
+            debugPrint("Resource bundle for OpenAttestationIOS.bundle not found")
             return
         }
         guard let path = resourceBundle.path(forResource: "oabundle", ofType: "js") else {
-            print("oabundle.js not found")
+            debugPrint("oabundle.js not found")
             return
         }
         
         guard let jsSource = try? String(contentsOfFile: path, encoding: String.Encoding.utf8) else {
-            print("oabundle.js cannot be loaded")
+            debugPrint("oabundle.js cannot be loaded")
             return
         }
         
@@ -68,20 +68,17 @@ extension OpenAttestation: WKNavigationDelegate {
         
         webView.evaluateJavaScript(scriptSource, completionHandler: { (result, error) in
             if let error = error {
-                print(error)
+                debugPrint(error)
+                self.completion?(false)
             }
             
             if let result = result as? Bool {
-                print(result)
                 self.completion?(result)
-                
             }
         })
     }
     
     public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        print(error)
+        debugPrint(error)
     }
-    
-
 }

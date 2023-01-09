@@ -6,7 +6,7 @@ target 'oa-wallet-ios' do
   use_frameworks!
 
   # Pods for oa-wallet-ios
-  pod 'OpenAttestationIOS'
+  pod 'OpenAttestationIOS', '~> 1.0.0-beta'
 
   target 'oa-wallet-iosTests' do
     inherit! :search_paths

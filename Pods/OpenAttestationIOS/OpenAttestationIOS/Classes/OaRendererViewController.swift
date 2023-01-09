@@ -44,16 +44,16 @@ public class OaRendererViewController: UIViewController {
         let frameworkBundle = Bundle(for: OpenAttestation.self)
         let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("OpenAttestationIOS.bundle")
         guard let resourceBundle = Bundle(url: bundleURL!) else {
-            print("Resource bundle for OpenAttestationIOS.bundle not found")
+            debugPrint("Resource bundle for OpenAttestationIOS.bundle not found")
             return
         }
         guard let path = resourceBundle.path(forResource: "oabundle", ofType: "js") else {
-            print("oabundle.js not found")
+            debugPrint("oabundle.js not found")
             return
         }
         
         guard let jsSource = try? String(contentsOfFile: path, encoding: String.Encoding.utf8) else {
-            print("oabundle.js cannot be loaded")
+            debugPrint("oabundle.js cannot be loaded")
             return
         }
         
@@ -84,7 +84,7 @@ extension OaRendererViewController: WKNavigationDelegate {
             
             webView.evaluateJavaScript(getDataScript, completionHandler: { (document, error) in
                 if let error = error {
-                    print(error)
+                    debugPrint(error)
                 }
                 
                 guard let document = document as? [String: Any] else { return }
@@ -94,16 +94,16 @@ extension OaRendererViewController: WKNavigationDelegate {
                 let frameworkBundle = Bundle(for: OpenAttestation.self)
                 let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("OpenAttestationIOS.bundle")
                 guard let resourceBundle = Bundle(url: bundleURL!) else {
-                    print("Resource bundle for OpenAttestationIOS.bundle not found")
+                    debugPrint("Resource bundle for OpenAttestationIOS.bundle not found")
                     return
                 }
                 guard let path = resourceBundle.path(forResource: "oarenderer", ofType: "html") else {
-                    print("oarenderer.html not found")
+                    debugPrint("oarenderer.html not found")
                     return
                 }
                 
                 guard var rendererHtml = try? String(contentsOfFile: path, encoding: String.Encoding.utf8) else {
-                    print("oarenderer.html cannot be loaded")
+                    debugPrint("oarenderer.html cannot be loaded")
                     return
                 }
                 
@@ -117,7 +117,7 @@ extension OaRendererViewController: WKNavigationDelegate {
                         rendererHtml = rendererHtml.replacingOccurrences(of: "<OA_DOCUMENT>", with: jsonStr)
                     }
                 } catch {
-                    print(error.localizedDescription)
+                    debugPrint(error.localizedDescription)
                 }
                 webView.loadHTMLString(rendererHtml, baseURL: nil)
                 self.loadingState = .complete

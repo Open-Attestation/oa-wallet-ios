@@ -1,16 +1,16 @@
 PODS:
-  - OpenAttestationIOS (0.1.4)
+  - OpenAttestationIOS (1.0.0-beta)
 
 DEPENDENCIES:
-  - OpenAttestationIOS
+  - OpenAttestationIOS (~> 1.0.0-beta)
 
 SPEC REPOS:
   trunk:
     - OpenAttestationIOS
 
 SPEC CHECKSUMS:
-  OpenAttestationIOS: 0ab96c83cbdaf9e6b9ece40ed06b63b207efbeea
+  OpenAttestationIOS: c186dc581adcab0b61187125a34ab1dccfd17484
 
-PODFILE CHECKSUM: af7a581420a8b95471b3e2907f4e059cccf2791c
+PODFILE CHECKSUM: 54fb99bc41dff98cf436f80784a4c0909adbd227
 
 COCOAPODS: 1.11.3
