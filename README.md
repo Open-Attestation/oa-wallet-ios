@@ -17,6 +17,10 @@ pod install
 and open the project using `oa-wallet-ios.xcworkspace`
 
 
+## Sample OpenAttestation documents
+You can find sample OA documents in the `Sample OA documents` folder. These can be used with the sample app.
+
+
 ## License
 
 oa-wallet-ios is available under the Apache-2.0 license. See the LICENSE file for more info.
