@@ -18,7 +18,7 @@ and open the project using `oa-wallet-ios.xcworkspace`
 
 
 ## Sample OpenAttestation documents
-You can find sample OA documents in the `Sample OA documents` folder. These can be used with the sample app.
+You can find sample OA documents in the [Sample OA documents](https://github.com/Open-Attestation/oa-wallet-ios/tree/master/Sample%20OA%20documents) folder. These can be used with the sample app.
 
 
 ## License
