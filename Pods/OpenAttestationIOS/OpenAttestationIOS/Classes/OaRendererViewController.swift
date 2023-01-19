@@ -66,6 +66,7 @@ public class OaRendererViewController: UIViewController {
         webViewConfiguration.userContentController = contentController
         
         webView = WKWebView(frame: self.view.frame, configuration: webViewConfiguration)
+        webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         webView.navigationDelegate = self
         view.addSubview(webView)
         webView.loadHTMLString("<html><head></head><body></body></html>", baseURL: nil)
