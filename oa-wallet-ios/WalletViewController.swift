@@ -115,10 +115,9 @@ class WalletViewController: UIViewController {
         }
     }
     
-    func displayDocumentQR(url: URL) {
+    func displayQrValidityOptions(url: URL) {
         guard let oaDocument = readDocument(url: url) else { return }
         
-        showLoadingIndicator()
         if (Config.getdownloadurlEndpoint.isEmpty || Config.getuploadurlEndpoint.isEmpty) {
             let title = "Error: QR Generation Endpoints not configured!"
             let message = "Please open Config.swift to add the endpoints"
@@ -127,12 +126,40 @@ class WalletViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         
+        let alert = UIAlertController(title: "Select validity period", message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "1 Hour", style: .default , handler:{ (UIAlertAction) in
+            self.displayDocumentQR(document: oaDocument, validity: 3600)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "1 Day", style: .default , handler:{ (UIAlertAction) in
+            self.displayDocumentQR(document: oaDocument, validity: 86400)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "3 Days", style: .default , handler:{ (UIAlertAction) in
+            self.displayDocumentQR(document: oaDocument, validity: 259200)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "7 Days", style: .default , handler:{ (UIAlertAction) in
+            self.displayDocumentQR(document: oaDocument, validity: 604800)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction) in
+            return
+        }))
+        
+        alert.popoverPresentationController?.sourceView = self.view
+        self.present(alert, animated: true, completion:nil)
+    }
+    
+    func displayDocumentQR(document: String, validity: Int) {
+        showLoadingIndicator()
         Task {
-            guard let file = oaDocument.data(using: .utf8) else {
+            guard let file = document.data(using: .utf8) else {
                 return
             }
             do {
-                let downloadUrl = try await DocumentsService.uploadDocument(data: file)
+                let downloadUrl = try await DocumentsService.uploadDocument(data: file,validityDuration: validity)
                 
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "QRCodeViewController") as! QRCodeViewController
                 self.present(vc, animated: true) {
@@ -195,7 +222,7 @@ class WalletViewController: UIViewController {
         }))
         
         alert.addAction(UIAlertAction(title: "Generate QR code", style: .default , handler:{ (UIAlertAction) in
-            self.displayDocumentQR(url: url)
+            self.displayQrValidityOptions(url: url)
         }))
         
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction) in
@@ -226,7 +253,7 @@ class WalletViewController: UIViewController {
         }))
         
         alert.addAction(UIAlertAction(title: "Generate QR code", style: .default , handler:{ (UIAlertAction) in
-            self.displayDocumentQR(url: url)
+            self.displayQrValidityOptions(url: url)
         }))
         
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive , handler:{ (UIAlertAction) in

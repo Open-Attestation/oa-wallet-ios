@@ -31,7 +31,7 @@ enum DocumentsServiceError: Error {
 }
 
 class DocumentsService {
-    static func uploadDocument(data: Data) async throws -> String {
+    static func uploadDocument(data: Data, validityDuration: Int) async throws -> String {
         guard let uploadUrl = URL(string: Config.getuploadurlEndpoint) else {
             throw DocumentsServiceError.uploadUrlNotDefined
         }
