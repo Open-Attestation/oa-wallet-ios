@@ -115,6 +115,42 @@ class WalletViewController: UIViewController {
         }
     }
     
+    func displayDocumentQR(url: URL) {
+        guard let oaDocument = readDocument(url: url) else { return }
+        
+        showLoadingIndicator()
+        if (Config.getdownloadurlEndpoint.isEmpty || Config.getuploadurlEndpoint.isEmpty) {
+            let title = "Error: QR Generation Endpoints not configured!"
+            let message = "Please open Config.swift to add the endpoints"
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        Task {
+            guard let file = oaDocument.data(using: .utf8) else {
+                return
+            }
+            do {
+                let downloadUrl = try await DocumentsService.uploadDocument(data: file)
+                
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "QRCodeViewController") as! QRCodeViewController
+                self.present(vc, animated: true) {
+                    vc.displayQRCode(for: downloadUrl)
+                }
+            }
+            catch {
+                let title = "Error generating QR Code"
+                let message = "\(error)"
+                let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            hideLoadingIndicator()
+        }
+    }
+    
+    
     func deleteDocumentFromWallet(url: URL) {
         do {
             try FileManager.default.removeItem(at: url)
@@ -158,6 +194,10 @@ class WalletViewController: UIViewController {
             self.viewDocument(url: url)
         }))
         
+        alert.addAction(UIAlertAction(title: "Generate QR code", style: .default , handler:{ (UIAlertAction) in
+            self.displayDocumentQR(url: url)
+        }))
+        
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction) in
             
         }))
@@ -183,6 +223,10 @@ class WalletViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Share", style: .default , handler:{ (UIAlertAction) in
             let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
             self.present(activityViewController, animated: true, completion: nil)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Generate QR code", style: .default , handler:{ (UIAlertAction) in
+            self.displayDocumentQR(url: url)
         }))
         
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive , handler:{ (UIAlertAction) in

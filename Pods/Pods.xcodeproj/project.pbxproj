@@ -15,7 +15,7 @@
 		657D0D863E68853CD48E528AA2EEEE1A /* Pods-oa-wallet-iosTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B4B039F17267D5C53C918220B3A06DAE /* Pods-oa-wallet-iosTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7B9974413CB93970A86FB98C6A9EDAE4 /* Pods-oa-wallet-ios-oa-wallet-iosUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B32DF79AD03D6FE1A42432FC88EA9AD /* Pods-oa-wallet-ios-oa-wallet-iosUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A611E4162CB44BE5928E30674ED05DA /* Pods-oa-wallet-ios-oa-wallet-iosUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C650CAB73CBD4C3F5E9F126787E8822 /* Pods-oa-wallet-ios-oa-wallet-iosUITests-dummy.m */; };
-		91CFB85915AAF7F5405523BE5A564CFA /* OpenAttestationIOS-OpenAttestationIOS in Resources */ = {isa = PBXBuildFile; fileRef = 02BA92750F2C3E815AA54443BA23DD1C /* OpenAttestationIOS-OpenAttestationIOS */; };
+		91CFB85915AAF7F5405523BE5A564CFA /* OpenAttestationIOS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 02BA92750F2C3E815AA54443BA23DD1C /* OpenAttestationIOS.bundle */; };
 		93570601205230FC7C61034AFDDBAC7A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		9E53D77B117B9BBE4F2CF9CD5F0F5BDC /* oarenderer.html in Resources */ = {isa = PBXBuildFile; fileRef = 6241ABA283536D7C3AFCDC7368D2BDBD /* oarenderer.html */; };
 		A3A6DDA0C569C38604F00E2BBDA22AD6 /* Pods-oa-wallet-ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F50C3183A13D7D1F6710D69635788414 /* Pods-oa-wallet-ios-dummy.m */; };
@@ -58,7 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02BA92750F2C3E815AA54443BA23DD1C /* OpenAttestationIOS-OpenAttestationIOS */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "OpenAttestationIOS-OpenAttestationIOS"; path = OpenAttestationIOS.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		02BA92750F2C3E815AA54443BA23DD1C /* OpenAttestationIOS.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenAttestationIOS.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C38E11C00E6E99679E237517AC7B14 /* Pods-oa-wallet-ios-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-oa-wallet-ios-acknowledgements.plist"; sourceTree = "<group>"; };
 		14CFE0A2CA75D75F7CDD3830612AEA01 /* Pods-oa-wallet-ios-oa-wallet-iosUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-oa-wallet-ios-oa-wallet-iosUITests"; path = Pods_oa_wallet_ios_oa_wallet_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19AF7AF2620224EFB16034E3709201E7 /* Pods-oa-wallet-iosTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-oa-wallet-iosTests"; path = Pods_oa_wallet_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,7 +72,7 @@
 		53FAF4E212C3CF420F41FBD1B898EFF1 /* Pods-oa-wallet-ios.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-oa-wallet-ios.modulemap"; sourceTree = "<group>"; };
 		5B32DF79AD03D6FE1A42432FC88EA9AD /* Pods-oa-wallet-ios-oa-wallet-iosUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-oa-wallet-ios-oa-wallet-iosUITests-umbrella.h"; sourceTree = "<group>"; };
 		60D56C200B3E042B039E22BFC2C7A172 /* Pods-oa-wallet-ios-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-oa-wallet-ios-umbrella.h"; sourceTree = "<group>"; };
-		6241ABA283536D7C3AFCDC7368D2BDBD /* oarenderer.html */ = {isa = PBXFileReference; includeInIndex = 1; name = oarenderer.html; path = OpenAttestationIOS/Assets/oarenderer.html; sourceTree = "<group>"; };
+		6241ABA283536D7C3AFCDC7368D2BDBD /* oarenderer.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = oarenderer.html; path = OpenAttestationIOS/Assets/oarenderer.html; sourceTree = "<group>"; };
 		663725C08128632F0254846C7414E890 /* Pods-oa-wallet-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-oa-wallet-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		6B91E4BFCEBEA9FDA4C3DA312447DD42 /* OpenAttestationIOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OpenAttestationIOS-prefix.pch"; sourceTree = "<group>"; };
 		6EA0463827B7B872D65143645F984B3D /* OpenAttestationIOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OpenAttestationIOS; path = OpenAttestationIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,7 +81,7 @@
 		9341E4BF50AB6FB38846996504B23AA9 /* Pods-oa-wallet-ios-oa-wallet-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-oa-wallet-ios-oa-wallet-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9745D8DA68E62A0D417DE8B8AF6339EF /* Pods-oa-wallet-ios-oa-wallet-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-oa-wallet-ios-oa-wallet-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C650CAB73CBD4C3F5E9F126787E8822 /* Pods-oa-wallet-ios-oa-wallet-iosUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-oa-wallet-ios-oa-wallet-iosUITests-dummy.m"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9FD562C423E57F04819429611A26ED7C /* Pods-oa-wallet-ios-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-oa-wallet-ios-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9FF7D0F476204808780B0C7313F9D5ED /* OpenAttestationIOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OpenAttestationIOS-dummy.m"; sourceTree = "<group>"; };
 		AA61AE42B2BC5DA5EDD4A8E17DFC6884 /* Pods-oa-wallet-ios */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-oa-wallet-ios"; path = Pods_oa_wallet_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,7 +97,7 @@
 		DFC353944B92110FAB3ABD18FEA6A250 /* Pods-oa-wallet-iosTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-oa-wallet-iosTests-Info.plist"; sourceTree = "<group>"; };
 		E3446B9E24587AE4AE89A6D2F5F58615 /* Pods-oa-wallet-iosTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-oa-wallet-iosTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E78881423ECBA09F2F833CD4AC2D8002 /* OaRendererViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OaRendererViewController.swift; path = OpenAttestationIOS/Classes/OaRendererViewController.swift; sourceTree = "<group>"; };
-		F189C8C66D8F33EB52A40C08425C2294 /* oabundle.js */ = {isa = PBXFileReference; includeInIndex = 1; name = oabundle.js; path = OpenAttestationIOS/Assets/oabundle.js; sourceTree = "<group>"; };
+		F189C8C66D8F33EB52A40C08425C2294 /* oabundle.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = oabundle.js; path = OpenAttestationIOS/Assets/oabundle.js; sourceTree = "<group>"; };
 		F4BE51C5BA613DFEB681E837520704ED /* Pods-oa-wallet-ios-oa-wallet-iosUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-oa-wallet-ios-oa-wallet-iosUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F50C3183A13D7D1F6710D69635788414 /* Pods-oa-wallet-ios-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-oa-wallet-ios-dummy.m"; sourceTree = "<group>"; };
 		F54ABA9E33F13E33D549FBE2C342EC1F /* OpenAttestationIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OpenAttestationIOS.debug.xcconfig; sourceTree = "<group>"; };
@@ -257,7 +257,6 @@
 				187E42D091A7406A3B152CB51234FD50 /* Resources */,
 				01B36AE8EDA46DA3006828B6ED4F62E0 /* Support Files */,
 			);
-			name = OpenAttestationIOS;
 			path = OpenAttestationIOS;
 			sourceTree = "<group>";
 		};
@@ -265,7 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				6EA0463827B7B872D65143645F984B3D /* OpenAttestationIOS */,
-				02BA92750F2C3E815AA54443BA23DD1C /* OpenAttestationIOS-OpenAttestationIOS */,
+				02BA92750F2C3E815AA54443BA23DD1C /* OpenAttestationIOS.bundle */,
 				AA61AE42B2BC5DA5EDD4A8E17DFC6884 /* Pods-oa-wallet-ios */,
 				14CFE0A2CA75D75F7CDD3830612AEA01 /* Pods-oa-wallet-ios-oa-wallet-iosUITests */,
 				19AF7AF2620224EFB16034E3709201E7 /* Pods-oa-wallet-iosTests */,
@@ -420,7 +419,7 @@
 			);
 			name = "OpenAttestationIOS-OpenAttestationIOS";
 			productName = OpenAttestationIOS;
-			productReference = 02BA92750F2C3E815AA54443BA23DD1C /* OpenAttestationIOS-OpenAttestationIOS */;
+			productReference = 02BA92750F2C3E815AA54443BA23DD1C /* OpenAttestationIOS.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -489,7 +488,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91CFB85915AAF7F5405523BE5A564CFA /* OpenAttestationIOS-OpenAttestationIOS in Resources */,
+				91CFB85915AAF7F5405523BE5A564CFA /* OpenAttestationIOS.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,6 +717,7 @@
 			baseConfigurationReference = C76F882225FC74ADBB0BE61ACC75D3B8 /* OpenAttestationIOS.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/OpenAttestationIOS";
+				DEVELOPMENT_TEAM = Q32A7VU6AF;
 				IBSC_MODULE = OpenAttestationIOS;
 				INFOPLIST_FILE = "Target Support Files/OpenAttestationIOS/ResourceBundle-OpenAttestationIOS-OpenAttestationIOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1012,6 +1012,7 @@
 			baseConfigurationReference = F54ABA9E33F13E33D549FBE2C342EC1F /* OpenAttestationIOS.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/OpenAttestationIOS";
+				DEVELOPMENT_TEAM = Q32A7VU6AF;
 				IBSC_MODULE = OpenAttestationIOS;
 				INFOPLIST_FILE = "Target Support Files/OpenAttestationIOS/ResourceBundle-OpenAttestationIOS-OpenAttestationIOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZBO-CH-qGA">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LZS-Y0-ywB">
-                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="721"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DocumentTableViewCell" id="VYN-la-uV5" customClass="DocumentTableViewCell" customModule="oa_wallet_ios" customModuleProvider="target">
@@ -65,10 +65,10 @@
                                 </prototypes>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Elr-9G-gnD" userLabel="loadingIndicatorView">
-                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="721"/>
                                 <subviews>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="mqL-Oj-vXI" userLabel="loadingIndicator">
-                                        <rect key="frame" x="188.5" y="388.5" width="37" height="37"/>
+                                        <rect key="frame" x="188.5" y="342" width="37" height="37"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -91,6 +91,7 @@
                             <constraint firstItem="LZS-Y0-ywB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pFY-8Z-vMw"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="E57-2G-H5c"/>
                     <connections>
                         <outlet property="documentTableView" destination="LZS-Y0-ywB" id="Vyj-iA-Hk2"/>
                         <outlet property="loadingIndicator" destination="mqL-Oj-vXI" id="PZx-6F-ke0"/>
@@ -99,11 +100,112 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="122" y="52"/>
+            <point key="canvasLocation" x="1942.0289855072465" y="51.5625"/>
+        </scene>
+        <!--QRCode View Controller-->
+        <scene sceneID="DOf-00-v0r">
+            <objects>
+                <viewController storyboardIdentifier="QRCodeViewController" id="gJm-vK-hKo" userLabel="QRCode View Controller" customClass="QRCodeViewController" customModule="oa_wallet_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1ge-pw-TrD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mlv-A1-21p" userLabel="qrImageView">
+                                <rect key="frame" x="16" y="64" width="382" height="382"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Mlv-A1-21p" secondAttribute="height" id="7T0-jF-DPB"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uzk-T9-mFS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Mlv-A1-21p" firstAttribute="leading" secondItem="uzk-T9-mFS" secondAttribute="leading" constant="16" id="Xhe-g3-7Wh"/>
+                            <constraint firstItem="Mlv-A1-21p" firstAttribute="top" secondItem="uzk-T9-mFS" secondAttribute="top" constant="16" id="dNB-Xi-F9C"/>
+                            <constraint firstItem="uzk-T9-mFS" firstAttribute="trailing" secondItem="Mlv-A1-21p" secondAttribute="trailing" constant="16" id="wfi-6o-h0N"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="qrImageView" destination="Mlv-A1-21p" id="hex-TA-snT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hc9-cz-xUW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2934.7826086956525" y="51.5625"/>
+        </scene>
+        <!--Scan-->
+        <scene sceneID="lyr-Mc-dXp">
+            <objects>
+                <viewController id="8YX-rP-45q" customClass="ScanQRViewController" customModule="oa_wallet_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jbw-Rn-sKo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cSQ-gD-VhC" userLabel="scannerView">
+                                <rect key="frame" x="0.0" y="48" width="414" height="765"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ten-d9-T09"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cSQ-gD-VhC" firstAttribute="top" secondItem="ten-d9-T09" secondAttribute="top" id="K0P-km-NYk"/>
+                            <constraint firstItem="ten-d9-T09" firstAttribute="trailing" secondItem="cSQ-gD-VhC" secondAttribute="trailing" id="V85-B2-yLe"/>
+                            <constraint firstItem="cSQ-gD-VhC" firstAttribute="leading" secondItem="ten-d9-T09" secondAttribute="leading" id="dPY-UE-8dN"/>
+                            <constraint firstItem="ten-d9-T09" firstAttribute="bottom" secondItem="cSQ-gD-VhC" secondAttribute="bottom" id="ikY-L3-eVF"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Scan" image="qrcode.viewfinder" catalog="system" id="9Gd-Wy-YQQ"/>
+                    <connections>
+                        <outlet property="scannerView" destination="cSQ-gD-VhC" id="Tcp-2E-5fH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5wB-jU-otD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1031.8840579710145" y="759.375"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="KTn-Z2-p4S">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ZBO-CH-qGA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BiK-i2-Nuf">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="erE-mu-pbd" kind="relationship" relationship="viewControllers" id="klu-ei-qB1"/>
+                        <segue destination="8YX-rP-45q" kind="relationship" relationship="viewControllers" id="kqV-ZA-o59"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bs1-Jr-FgE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="121.73913043478262" y="405.13392857142856"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Hor-d2-wjj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="erE-mu-pbd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="tray.full.fill" catalog="system" id="EpP-xb-ggG"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="H24-Mb-um8">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ylx-Fz-Wz7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zLo-hO-HVO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1031.8840579710145" y="51.5625"/>
         </scene>
     </scenes>
     <resources>
         <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
+        <image name="qrcode.viewfinder" catalog="system" width="128" height="115"/>
+        <image name="tray.full.fill" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

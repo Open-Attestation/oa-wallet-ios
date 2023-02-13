@@ -19,6 +19,10 @@
 		1B3BAAB02939CCB200A5069A /* oa_wallet_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BAAAF2939CCB200A5069A /* oa_wallet_iosUITestsLaunchTests.swift */; };
 		1B3BAABD2939FFB900A5069A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BAABC2939FFB900A5069A /* Utils.swift */; };
 		1BD3C291294306D00048337B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3C290294306D00048337B /* Reachability.swift */; };
+		1BF51AB129976365001928AD /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF51AB029976365001928AD /* Config.swift */; };
+		1BF51AB329979365001928AD /* DocumentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF51AB229979365001928AD /* DocumentsService.swift */; };
+		1BF51AB52997A3EA001928AD /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF51AB42997A3EA001928AD /* QRCodeViewController.swift */; };
+		1BF51AB72997D218001928AD /* ScanQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF51AB62997D218001928AD /* ScanQRViewController.swift */; };
 		58547EC9E02E9ADC7F43B1BE /* Pods_oa_wallet_ios_oa_wallet_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70EDBFB178CCFD38A20924FC /* Pods_oa_wallet_ios_oa_wallet_iosUITests.framework */; };
 		72385312E26D20C3ED2700CE /* Pods_oa_wallet_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB72A346440BBAE94CFD9FA /* Pods_oa_wallet_ios.framework */; };
 		FC41FE971C656F214690793F /* Pods_oa_wallet_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E831153FFBDD7EE56AFFE6A9 /* Pods_oa_wallet_iosTests.framework */; };
@@ -59,6 +63,10 @@
 		1B3BAAAF2939CCB200A5069A /* oa_wallet_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oa_wallet_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1B3BAABC2939FFB900A5069A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		1BD3C290294306D00048337B /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		1BF51AB029976365001928AD /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		1BF51AB229979365001928AD /* DocumentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsService.swift; sourceTree = "<group>"; };
+		1BF51AB42997A3EA001928AD /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		1BF51AB62997D218001928AD /* ScanQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRViewController.swift; sourceTree = "<group>"; };
 		61E564CDCFFD44FAFD837DF5 /* Pods-oa-wallet-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oa-wallet-iosTests.release.xcconfig"; path = "Target Support Files/Pods-oa-wallet-iosTests/Pods-oa-wallet-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		70EDBFB178CCFD38A20924FC /* Pods_oa_wallet_ios_oa_wallet_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_oa_wallet_ios_oa_wallet_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		809695BBB56AD33C0068028D /* Pods-oa-wallet-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oa-wallet-ios.release.xcconfig"; path = "Target Support Files/Pods-oa-wallet-ios/Pods-oa-wallet-ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +140,10 @@
 				1B19DD4C2940718600D97695 /* Extensions.swift */,
 				1B19DD5029408A1200D97695 /* DocumentTableViewCell.swift */,
 				1BD3C290294306D00048337B /* Reachability.swift */,
+				1BF51AB029976365001928AD /* Config.swift */,
+				1BF51AB229979365001928AD /* DocumentsService.swift */,
+				1BF51AB42997A3EA001928AD /* QRCodeViewController.swift */,
+				1BF51AB62997D218001928AD /* ScanQRViewController.swift */,
 			);
 			path = "oa-wallet-ios";
 			sourceTree = "<group>";
@@ -418,7 +430,11 @@
 				1B3BAA912939CCB100A5069A /* WalletViewController.swift in Sources */,
 				1B19DD4D2940718600D97695 /* Extensions.swift in Sources */,
 				1B3BAA8D2939CCB100A5069A /* AppDelegate.swift in Sources */,
+				1BF51AB129976365001928AD /* Config.swift in Sources */,
+				1BF51AB72997D218001928AD /* ScanQRViewController.swift in Sources */,
+				1BF51AB329979365001928AD /* DocumentsService.swift in Sources */,
 				1B3BAABD2939FFB900A5069A /* Utils.swift in Sources */,
+				1BF51AB52997A3EA001928AD /* QRCodeViewController.swift in Sources */,
 				1BD3C291294306D00048337B /* Reachability.swift in Sources */,
 				1B19DD5129408A1200D97695 /* DocumentTableViewCell.swift in Sources */,
 			);

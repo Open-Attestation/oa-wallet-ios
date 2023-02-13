@@ -11,15 +11,14 @@ import UniformTypeIdentifiers
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window:UIWindow?
-    var walletVC: WalletViewController?
+    var tabBarController: UITabBarController?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
-        walletVC = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
-        if let walletVC = self.walletVC {
-            let navigationController = UINavigationController(rootViewController: walletVC)
-            window?.rootViewController = navigationController
+        tabBarController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        if let tabBarController = self.tabBarController {
+            window?.rootViewController = tabBarController
             window?.makeKeyAndVisible()
         }
         
@@ -27,8 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        guard UTType(filenameExtension: url.pathExtension) == .oa else { return false }
-        walletVC?.presentImportOptions(url: url)
+        if let navigationController = tabBarController?.viewControllers?.first as? UINavigationController {
+            if let walletVC = navigationController.viewControllers.first as? WalletViewController {
+                tabBarController?.selectedIndex = 0
+                guard UTType(filenameExtension: url.pathExtension) == .oa else { return false }
+                walletVC.presentImportOptions(url: url)
+            }
+        }
         
         return true
     }
