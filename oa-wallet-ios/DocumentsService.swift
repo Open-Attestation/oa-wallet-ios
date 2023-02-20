@@ -63,7 +63,7 @@ class DocumentsService {
         }
         
         // Get the S3 presigned download url for the document
-        let downloadUrlParams = GetDownloadurlRequestParams(filename: getUploadurlResponse.filename, expiry_in_seconds: 600)
+        let downloadUrlParams = GetDownloadurlRequestParams(filename: getUploadurlResponse.filename, expiry_in_seconds: validityDuration)
         var getDownloadUrlRequest = URLRequest(url: downloadUrl)
         getDownloadUrlRequest.httpMethod = "POST"
         getDownloadUrlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
