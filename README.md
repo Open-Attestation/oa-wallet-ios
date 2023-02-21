@@ -7,6 +7,8 @@ The OA Wallet iOS app is a reference implementation of how iOS apps can handle [
 - Import `.oa` into the wallet
 - Verify `.oa` documents
 - View the rendered `.oa` document
+- Generate QR Code for document [[Setup instructions]](https://github.com/Open-Attestation/oa-wallet-backend-example#installationdeployment-instructions)
+- Scan OA Wallet QR Codes to view document
 
 
 ## Setup
